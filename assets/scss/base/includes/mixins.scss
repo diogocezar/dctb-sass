@@ -92,3 +92,42 @@
   float:left;
   width:100%;
 }
+// Keyframe
+@mixin keyframe ($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+    @-moz-keyframes $animation-name {
+        @content;
+    }
+    @keyframes $animation-name {
+        @content;
+    }
+}
+// Animation
+@mixin animation ($delay, $duration, $animation) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: forwards;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: forwards;
+}
+// Section Background
+@mixin bg-section ($url, $bg-position:center, $bg-repeat:no-repeat) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  float: left;
+  background-image: url($url);
+  background-position: $bg-position;
+  background-repeat: $bg-repeat;
+  @include cover;
+}

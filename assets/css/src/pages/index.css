@@ -1,0 +1,23 @@
+.animate {
+  display: block; }
+
+body {
+  background-color: #000000; }
+
+.section-01 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  float: left;
+  background-image: url("teste.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover; }
+  @media screen and (max-width: 1024px) {
+    .section-01 {
+      width: 330px;
+      margin-bottom: 15px; } }

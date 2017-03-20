@@ -5,8 +5,19 @@
 @charset 'utf-8';
 
 // Imports
+@import '../base/includes/mixins.scss';
 @import '../base/includes/colors.scss';
+@import '../base/includes/animations.scss';
 
 body{
   background-color: $color-black;
+}
+
+.section-01{
+	@include bg-section('teste.jpg');
+
+	@media screen and (max-width: 1024px) {
+		width: 330px;
+		margin-bottom: 15px;
+	}
 }

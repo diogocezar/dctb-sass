@@ -1,3 +1,12 @@
+.animate {
+  display: block; }
+
+nav {
+  display: block; }
+
+footer {
+  display: block; }
+
 * {
   outline: none; }
 
