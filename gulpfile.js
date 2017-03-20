@@ -20,10 +20,10 @@ Gulp = {
 			console.log('[SASS] Compilando Arquivos do Sass');
 			Gulp.self.src('./assets/scss/base/base.scss')
 			.pipe(Gulp.sass())
-			.pipe(Gulp.self.dest('./assets/css/src'));
+			.pipe(Gulp.self.dest('./assets/css/src/base'));
 			Gulp.self.src('./assets/scss/pages/**/*.scss')
 			.pipe(Gulp.sass())
-			.pipe(Gulp.self.dest('./assets/css/src'));
+			.pipe(Gulp.self.dest('./assets/css/src/pages'));
 		});
 	},
 	css: function(){
