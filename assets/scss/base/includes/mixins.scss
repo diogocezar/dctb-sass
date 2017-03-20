@@ -1,0 +1,94 @@
+/// dctb-sass
+/// Sass Boilerplate to start new project with some functionalities.
+/// @author Diogo Cezar <diogo@diogocezar.com>
+
+// Mixins
+// Set the project mixins here
+
+// Font-Face
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+	@return $string;
+}
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+// Text Align
+@mixin text-align($align){
+  text-align: $align;
+}
+// Cover
+@mixin cover{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+// Transition
+@mixin transition($time: '', $type: 'ease-in-out'){
+  -webkit-transition: all $time $type;
+  -ms-transition: all $time $type;
+  transition: all $time $type;
+}
+// Scale
+@mixin scale($value){
+  -webkit-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+// Margin Center
+@mixin margin-center{
+  display: block;
+  margin: 0 auto;
+}
+// Border box
+@mixin border-box{
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+// Align
+@mixin align($top: '', $left: '', $value-x: '', $value-y: ''){
+  position: absolute;
+  top: $top;
+  left: $left;
+  -webkit-transform: translate($value-x, $value-y);
+  -moz-transform: translate($value-x, $value-y);
+  -ms-transform: translate($value-x, $value-y);
+  transform: translate($value-x, $value-y);
+}
+// Opacity
+@mixin opacity($value){
+  filter: alpha(opacity=$value);
+  -moz-opacity: $value;
+  -khtml-opacity: $value;
+  opacity: $value;
+}
+// Relative
+@mixin relative{
+  position: relative;
+  float:left;
+  width:100%;
+}
