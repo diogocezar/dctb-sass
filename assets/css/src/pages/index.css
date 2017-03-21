@@ -4,20 +4,28 @@
 body {
   background-color: #000000; }
 
-.section-01 {
+.section-home {
   top: 0;
   left: 0;
   width: 100%;
   position: relative;
   float: left;
-  background-image: url("teste.jpg");
+  background-image: url("pic.jpg");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
   background-size: cover; }
-  @media screen and (max-width: 1024px) {
-    .section-01 {
-      width: 330px;
-      margin-bottom: 15px; } }
+  .section-home .profile-pic {
+    float: left;
+    width: 250px; }
+    @media only screen and (max-width: 1200px) {
+      .section-home .profile-pic {
+        width: 100%; } }
+    @media only screen and (max-width: 992px) {
+      .section-home .profile-pic {
+        width: 50%; } }
+    @media only screen and (max-width: 480px) {
+      .section-home .profile-pic {
+        width: 25%; } }

@@ -5,6 +5,25 @@
 // Mixins
 // Set the project mixins here
 
+// Media Queries
+@mixin responsive($size) {
+  @if $size == s1 {
+    @media only screen and (max-width: $size-media-s1) { @content; }
+  }
+  @else if $size == s2 {
+    @media only screen and (max-width: $size-media-s2) { @content; }
+  }
+  @else if $size == s3 {
+    @media only screen and (max-width: $size-media-s3) { @content; }
+  }
+  @else if $size == s4 {
+    @media only screen and (max-width: $size-media-s4) { @content; }
+  }
+  @else if $size == s5 {
+    @media only screen and (max-width: $size-media-s5) { @content; }
+  }
+}
+
 // Font-Face
 @function str-replace($string, $search, $replace: "") {
 	$index: str-index($string, $search);
