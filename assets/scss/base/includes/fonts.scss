@@ -5,6 +5,9 @@
 // Fonts
 // Set the project fonts here
 
+// Fonts Include
+@include font-face("Samplina Neue", fonts/SamplinaNeue, bold, italic);
+
 $font-primary : 'Roboto', sans-serif;
 $font-secundary : 'Arial', sans-serif;
 $font-tertiary : 'Tahoma', sans-serif;

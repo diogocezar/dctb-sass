@@ -22,37 +22,40 @@
   @else if $size == s5 {
     @media only screen and (max-width: $size-media-s5) { @content; }
   }
+  @else{
+    @media only screen and (max-width: 200px) { @content; }
+  }
 }
 
 // Font-Face
 @function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
-	@return $string;
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
 }
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }
 // Text Align
 @mixin text-align($align){
@@ -66,16 +69,39 @@
   background-size: cover;
 }
 // Transition
-@mixin transition($time: '', $type: 'ease-in-out'){
-  -webkit-transition: all $time $type;
-  -ms-transition: all $time $type;
-  transition: all $time $type;
+@mixin transition($time: '', $type: ease-in-out){
+  -webkit-transition: all $time $type 0s;
+      -moz-transform: all $time $type 0s;
+      -ms-transition: all $time $type 0s;
+          transition: all $time $type 0s;
+}
+// Place Holder
+@mixin placeholder($color){
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
 }
 // Scale
 @mixin scale($value){
   -webkit-transform: scale($value);
   -ms-transform: scale($value);
   transform: scale($value);
+}
+// Rotate
+@mixin rotate($deg){
+  -webkit-transform: rotate($deg);
+     -moz-transform: rotate($deg);
+      -ms-transform: rotate($deg);
+          transform: rotate($deg);
 }
 // Margin Center
 @mixin margin-center{
@@ -90,13 +116,12 @@
 }
 // Align
 @mixin align($top: '', $left: '', $value-x: '', $value-y: ''){
-  position: absolute;
   top: $top;
   left: $left;
-  -webkit-transform: translate($value-x, $value-y);
-  -moz-transform: translate($value-x, $value-y);
-  -ms-transform: translate($value-x, $value-y);
-  transform: translate($value-x, $value-y);
+  -webkit-transform: translate($value-x, $value-y)!important;
+  -moz-transform: translate($value-x, $value-y)!important;
+  -ms-transform: translate($value-x, $value-y)!important;
+  transform: translate($value-x, $value-y)!important;
 }
 // Opacity
 @mixin opacity($value){

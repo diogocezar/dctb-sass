@@ -5,8 +5,8 @@
 @charset 'utf-8';
 
 // Imports
-@import '../base/includes/sizes.scss';
 @import '../base/includes/mixins.scss';
+@import '../base/includes/sizes.scss';
 @import '../base/includes/colors.scss';
 @import '../base/includes/animations.scss';
 
@@ -24,4 +24,3 @@ body{
 	  @include responsive(s4) { width: 25% ;}
 	}
 }
-

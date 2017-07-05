@@ -54,7 +54,7 @@ Gulp = {
 	},
 	wsass: function(){
 		Gulp.self.task('wsass', function(){
-			Gulp.self.watch('../assets/scss/**', ['scss']);
+			Gulp.self.watch('./assets/scss/**', ['scss']);
 		});
 	}
 }

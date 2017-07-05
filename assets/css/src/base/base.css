@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Samplina Neue";
+  font-style: italic;
+  font-weight: bold;
+  src: url("fonts/SamplinaNeue.eot?") format("eot"), url("fonts/SamplinaNeue.woff2") format("woff2"), url("fonts/SamplinaNeue.woff") format("woff"), url("fonts/SamplinaNeue.ttf") format("truetype"), url("fonts/SamplinaNeue.svg#Samplina_Neue") format("svg"); }
+
 .animate {
   display: block; }
 
@@ -44,9 +50,3 @@ h3 {
 
 p {
   font-size: 1em; }
-
-@font-face {
-  font-family: "Samplina Neue";
-  font-style: italic;
-  font-weight: bold;
-  src: url("fonts/SamplinaNeue.eot?") format("eot"), url("fonts/SamplinaNeue.woff2") format("woff2"), url("fonts/SamplinaNeue.woff") format("woff"), url("fonts/SamplinaNeue.ttf") format("truetype"), url("fonts/SamplinaNeue.svg#Samplina_Neue") format("svg"); }
